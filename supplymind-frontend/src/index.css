@@ -2,41 +2,36 @@
 
 
 
-:root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #172033;
-  background: #f6f8fc;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+
+@theme {
+  --color-ivory: #f8f6f0;
+  --color-forest: #183c32;
+  --color-forest-light: #285446;
+  --color-champagne: #c7a879;
+  --color-muted: #77786f;
 }
 
-* {
-  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  background: #f8f6f0;
+  color: #183c32;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 button,
+a,
 input,
-textarea {
-  font: inherit;
-}
-
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.2);
-  outline-offset: 2px;
+select {
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
-  background: #dbeafe;
-  color: #1e40af;
+  background: #c7a879;
+  color: #183c32;
 }
