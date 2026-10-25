@@ -97,3 +97,13 @@ class LocationResponse(BaseModel):
     address: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+
+from pydantic import BaseModel, Field
+from typing import Optional, List, Dict, Any
+
+class SupplierSearchRequest(BaseModel):
+    category: str = Field(..., min_length=1, description="Product category")
+    price: str = Field(..., description="Target price or budget range")
+    quantity: int = Field(..., gt=0, description="Required quantity")
+    mode: str = Field(..., description="Search mode or procurement channel")
+    specifications: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Detailed product specs")
