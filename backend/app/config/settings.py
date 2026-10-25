@@ -8,6 +8,8 @@ GROQ_MODEL = os.getenv(
     "GROQ_MODEL",
     
 )
+TINYFISH_API_KEY = os.getenv("TINYFISH_API_KEY", "")
+
 
 if not GROQ_API_KEY:
     raise RuntimeError(

@@ -5,6 +5,21 @@ from app.schemas.discovery import (
     SupplierSearchRequest,  # <-- Import the new schema
 )
 from app.service import discovery_service
+from starlette import status
+
+from fastapi import APIRouter, HTTPException
+
+
+def handle_service_error(
+message: str = "Internal service error",
+status_code: int = status.HTTP_500_INTERNAL_SERVER_ERROR,
+) -> None:
+    raise HTTPException(
+        status_code=status_code,
+        detail=message,
+    )
+
+router = APIRouter(prefix="/agent", tags=["Agent"])
 
 # ... (your existing router setup, start, answer, search-specification, and location routes) ...
 

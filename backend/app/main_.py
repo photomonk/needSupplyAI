@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config.settings import GROQ_MODEL
 from app.router.discovery import router as discovery_router
+from app.router.agent import router as agent_router
 
 app = FastAPI(
     title="AI Product Discovery API",
@@ -15,11 +16,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
+    allow_origins=[ 
+        "https://f3q7wjz2-5174.inc1.devtunnels.ms",
         "http://localhost:5174",
-        "http://127.0.0.1:5173",
         "https://njh45jg4-5174.inc1.devtunnels.ms",
-        "https://f3q7wjz2-5173.inc1.devtunnels.ms",
+        
+        
 
 
     ],
@@ -29,6 +31,7 @@ app.add_middleware(
 )
 
 app.include_router(discovery_router)
+app.include_router(agent_router)
 
 
 @app.get("/")

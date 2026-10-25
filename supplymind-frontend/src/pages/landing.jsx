@@ -470,7 +470,7 @@ export default function LandingPage() {
     if (category) params.set("category", category);
     if (location) params.set("location", location);
 
-    navigate(`/discover${params.size ? `?${params.toString()}` : ""}`);
+    navigate(`/supplier${params.size ? `?${params.toString()}` : ""}`);
   }
 
   return (
