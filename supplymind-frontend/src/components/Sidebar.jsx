@@ -10,6 +10,7 @@ import {
 const navigation = [
   { label: "Overview", icon: LayoutDashboard },
   { label: "Discover Products", icon: Search, active: true },
+  { label: "Supplier Networks",icon:Boxes, active: false },
 ];
 
 export default function Sidebar({ onNewSearch }) {
