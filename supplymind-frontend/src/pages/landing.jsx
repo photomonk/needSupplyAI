@@ -121,7 +121,7 @@ function Header({ onStart }) {
           <button
             onClick={() => {
               setMenuOpen(false);
-              onStart({});
+              onStart({}); 
             }}
             className="flex items-center justify-center gap-2 rounded-full bg-[#183C32] px-6 py-3 text-sm text-white transition hover:bg-[#285446]"
           >

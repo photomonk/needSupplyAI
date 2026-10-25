@@ -107,3 +107,45 @@ class SupplierSearchRequest(BaseModel):
     quantity: int = Field(..., gt=0, description="Required quantity")
     mode: str = Field(..., description="Search mode or procurement channel")
     specifications: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Detailed product specs")
+
+
+
+class StartRequest(BaseModel):
+    product: str = Field(min_length=2, max_length=200)
+    category: Optional[str] = Field(default=None, max_length=200)
+
+
+class AnswerRequest(BaseModel):
+    session_id: str
+    field: str
+    answer: str = Field(min_length=1, max_length=1000)
+
+
+class NextQuestion(BaseModel):
+    done: bool
+    field: str
+    question: str
+    options: list[str] = Field(default_factory=list)
+    input_type: str
+    required: bool
+
+
+class SearchSpecification(BaseModel):
+    product: str
+    category: str
+    budget_min: Optional[float] = None
+    budget_max: Optional[float] = None
+    currency: str = "INR"
+    quantity: Optional[int] = None
+    search_query: str
+    alternate_queries: list[str] = Field(default_factory=list)
+
+
+class GeneratedQuestion(BaseModel):
+    question: str
+
+
+class GeneratedSearchQueries(BaseModel):
+    search_query: str
+    alternate_queries: list[str] = Field(default_factory=list)
+
